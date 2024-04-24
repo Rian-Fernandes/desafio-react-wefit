@@ -51,6 +51,9 @@ npm start
 ## Link para o figma
 [Design no Figma](https://www.figma.com/file/EYcIWSzoPn0IHfs5oI6o32/Teste-Front-React-WeFit-2024?type=design&node-id=8102-3641&mode=design&t=zc0TBMF2rYmctI0b-0)
 
+## Link para o Vercel
+[Design no Figma](https://desafio-react-wefit.vercel.app/)
+
 ## Me siga no GitHub:
 
  <a href="https://github.com/Rian-Fernandes">Rian Fernandes</a></p>
