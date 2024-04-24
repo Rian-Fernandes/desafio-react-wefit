@@ -8,8 +8,8 @@ import { MessageCard } from "../../components/MessageCard";
 import { useAppContext } from "../../AppContext";
 
 interface CartProps {
-  cart?: any[]; // tornando cart opcional
-  clearCart?: () => void; // tornando clearCart opcional
+  cart?: any[];
+  clearCart?: () => void;
 }
 
 export const Cart: React.FC<CartProps> = ({ cart = [], clearCart }) => {
@@ -18,18 +18,15 @@ export const Cart: React.FC<CartProps> = ({ cart = [], clearCart }) => {
 
   const totalItems = cartItems.length;
 
-  // Função para remover uma quantidade específica de um item do carrinho
   const removeOneFromCart = (itemId: any) => {
     decreaseItemQuantity(itemId);
   };
 
-  // Função para finalizar a compra
   const completePurchase = () => {
-    console.log("Finalizar compra");
     if (clearCart) {
-      clearCart(); // Limpa o carrinho
+      clearCart();
     }
-    navigate("/finish"); // Navega para a página de finalização da compra
+    navigate("/finish");
   };
 
   return (
@@ -39,11 +36,11 @@ export const Cart: React.FC<CartProps> = ({ cart = [], clearCart }) => {
         {totalItems > 0 && (
           <ProductsCheckoutTable
             cart={cartItems}
-            removeItemCart={removeItemFromCart} // Passa a função para remover um item do carrinho
-            addItemCart={addItemToCart} // Passa a função para adicionar um item ao carrinho
+            removeItemCart={removeItemFromCart}
+            addItemCart={addItemToCart}
             decreaseItemQuantity={decreaseItemQuantity}
-            removeOne={removeOneFromCart} // Passa a função para remover uma unidade do carrinho
-            finishClicked={completePurchase} // Passa a função para finalizar a compra
+            removeOne={removeOneFromCart}
+            finishClicked={completePurchase}
           />
         )}
       </Container>

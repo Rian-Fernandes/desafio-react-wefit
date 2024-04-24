@@ -6,12 +6,11 @@ interface ButtonProps {
   clicked: () => void;
   hasIcon: boolean;
   btnText: string;
-  isActive?: boolean; // tornando a propriedade isActive opcional
+  isActive?: boolean;
   quantity?: number;
 }
 
 export const Button: React.FC<ButtonProps> = ({ clicked, hasIcon, btnText, quantity = 1, isActive = false }) => {
-  // definindo isActive com um valor padrão de false
   return (
     <Container>
       <button onClick={clicked} type="button" className={isActive ? "active" : ""}>

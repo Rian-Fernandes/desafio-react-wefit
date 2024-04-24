@@ -2,7 +2,6 @@ import React from "react";
 import _ from "lodash";
 import {
   Container,
-  Content,
   Input,
   Footer,
   ContainerImage,
@@ -30,7 +29,7 @@ interface ProductsCheckoutTableProps {
   cart: Product[];
   removeItemCart: (id: string) => void;
   addItemCart: (item: Product) => void;
-  removeOne: (id: string) => void; // Alteração aqui para passar o id do produto
+  removeOne: (id: string) => void;
   finishClicked: () => void;
   decreaseItemQuantity: (item: Product) => void;
 }
@@ -45,14 +44,13 @@ export const ProductsCheckoutTable: React.FC<ProductsCheckoutTableProps> = ({
 }) => {
   const cartDistincted = _.uniqBy(cart, "id");
 
-  // Função para calcular o total
   const calculateTotal = () => {
     let total = 0;
     cart.forEach((product) => {
       total += product.price;
     });
     return total;
-  }; ///
+  };
 
   return (
     <>
@@ -77,10 +75,6 @@ export const ProductsCheckoutTable: React.FC<ProductsCheckoutTableProps> = ({
                 style={{ cursor: "pointer" }}
                 onClick={() => {
                   decreaseItemQuantity(product);
-                  // Remover uma unidade do produto do carrinho
-                  // removeOne(product.id);
-                  // // Atualizar o valor total
-                  // calculateTotal();
                 }}
                 src={minusIcon}
               />

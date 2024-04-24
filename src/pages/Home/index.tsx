@@ -13,7 +13,6 @@ interface Product {
 
 const Home: React.FC<{ onAddToCart: () => void }> = ({ onAddToCart }) => {
   const [products, setProducts] = useState<Product[]>([]);
-  //  const [cart, setCart] = useState<Product[]>([]);
 
   const { cart, addItemToCart } = useAppContext();
 
@@ -32,8 +31,8 @@ const Home: React.FC<{ onAddToCart: () => void }> = ({ onAddToCart }) => {
 
   const handleAddToCart = (product: Product) => {
     addItemToCart(product);
-    // setCart((prevCart) => [...prevCart, product]); // Adiciona o produto ao carrinho
-    onAddToCart(); // Atualiza a quantidade no cabeçalho
+
+    onAddToCart();
   };
 
   return (
@@ -42,7 +41,7 @@ const Home: React.FC<{ onAddToCart: () => void }> = ({ onAddToCart }) => {
         <Card
           key={product.id}
           product={product}
-          onAddToCart={() => handleAddToCart(product)} // Passa a função handleAddToCart corretamente
+          onAddToCart={() => handleAddToCart(product)}
           cartQuantity={cart.filter((item) => item.id === product.id).length}
         />
       ))}

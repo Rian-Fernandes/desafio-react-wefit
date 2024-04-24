@@ -1,6 +1,5 @@
 // AppContext.tsx
 import React, { createContext, useContext, useState } from "react";
-import { Cart } from "./pages/Cart";
 
 interface AppProviderProps {
   children: React.ReactNode;
@@ -10,14 +9,14 @@ interface IAppContext {
   cart: any[];
   addItemToCart: (item: any) => void;
   removeItemFromCart: (itemId: any) => void;
-  decreaseItemQuantity: (itemId: any) => void; // Adicionando a nova função
+  decreaseItemQuantity: (itemId: any) => void;
 }
 
 const AppContext = createContext<IAppContext>({} as IAppContext);
 
 export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
   const [cart, setCart] = useState<any[]>([]);
-  console.log(cart);
+
   const addItemToCart = (item: any) => {
     setCart([...cart, item]);
   };

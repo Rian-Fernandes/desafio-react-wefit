@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { Container, Content, CartDiv, CartIcon, CartText } from "./styles";
 import bagIcon from "../../assets/bag.svg";
 
-// Defina totalItems como uma propriedade válida na interface
 interface HeaderProps {
   totalItems: number;
 }

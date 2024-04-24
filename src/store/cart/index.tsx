@@ -5,7 +5,6 @@ interface Product {
   title: string;
   price: number;
   image: string;
-  // Outras propriedades...
 }
 
 export const useCart = () => {
