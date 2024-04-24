@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import GlobalStyle from "./styles/global";
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import { Cart } from "./pages/Cart";
+import Finish from "./pages/Finish";
+import { Header } from "./components/Header";
 
-function App() {
+const App: React.FC = () => {
+  const [totalItems, setTotalItems] = useState(0);
+
+  const handleAddToCart = () => {
+    setTotalItems((prevTotalItems) => prevTotalItems + 1);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <GlobalStyle />
+      <Header totalItems={totalItems} />
+      <Routes>
+        <Route path="/" element={<Home onAddToCart={handleAddToCart} />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/finish" element={<Finish />} />
+      </Routes>
+    </>
   );
-}
+};
 
 export default App;
